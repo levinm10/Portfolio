@@ -1,4 +1,4 @@
-# 3D Portfolio Website
+# Portfolio
 
 A stunning, interactive 3D portfolio website built with modern web technologies. Features a dynamic project management system, beautiful animations, and a responsive design that works on all devices.
 
