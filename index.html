@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 3D Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-container">
+                    <div class="logo-icon">L</div>
+                    <span class="logo-text">Levin</span>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#achievements" class="nav-link">Achievements</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Hi. I'm Levin</h1>
+                <p class="hero-subtitle">Graphic Designer & Frontend Developer - Where art meets code</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-profile">
+                        <div class="profile-image-container">
+                            <img src="https://picsum.photos/seed/levin-profile/300/300.jpg" alt="Levin's Profile" class="profile-image" id="profile-image">
+                            <div class="profile-image-overlay">
+                                <span>Click to change image</span>
+                            </div>
+                        </div>
+                        <div class="about-text">
+                            <p>I'm Levin, a creative frontend developer who bridges the gap between graphic design and modern web development. I specialize in building responsive, interactive user interfaces with exceptional user experiences, combining artistic vision with cutting-edge frontend technologies.</p>
+                            <div class="skills">
+                                <h3>Skills</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">UI/UX Design</span>
+                                    <span class="skill-tag">HTML5</span>
+                                    <span class="skill-tag">CSS3</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">React</span>
+                                    <span class="skill-tag">Figma</span>
+                                    <span class="skill-tag">Canva</span>
+                                    <span class="skill-tag">Adobe Illustrator</span>
+                                    <span class="skill-tag">Adobe Photoshop</span>
+                                    <span class="skill-tag">Responsive Design</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">My Projects</h2>
+                <div class="projects-controls">
+                    <button class="btn btn-primary" id="add-project-btn">Add New Project</button>
+                </div>
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Projects will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Hackathons & Achievements Section -->
+        <section id="achievements" class="achievements">
+            <div class="container">
+                <h2 class="section-title">Hackathons & Achievements</h2>
+                <div class="achievements-controls">
+                    <button class="btn btn-primary" id="add-achievement-btn" onclick="if(typeof projectManager !== 'undefined') { projectManager.openAchievementModal(); } else { console.log('projectManager not found'); }">Add Achievement</button>
+                </div>
+                <div class="achievements-grid" id="achievements-grid">
+                    <!-- Achievements will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Let's Connect</h3>
+                        <p>I'm always interested in hearing about new projects and opportunities.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <strong>Email:</strong> <a href="mailto:levinmungwana@gmail.com" class="contact-link">levinmungwana@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/levin-mungwana-bb15b4374/" target="_blank" class="contact-link">linkedin.com/in/levin-mungwana-bb15b4374</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>GitHub:</strong> <a href="https://github.com/levinm10/githubTest/commits?author=levinm10" target="_blank" class="contact-link">github.com/levinm10</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Add New Project</h2>
+            <form id="project-form">
+                <div class="form-group">
+                    <label for="project-name">Project Name</label>
+                    <input type="text" id="project-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="project-description">Description</label>
+                    <textarea id="project-description" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="project-tech">Technologies (comma-separated)</label>
+                    <input type="text" id="project-tech" placeholder="React, Node.js, MongoDB">
+                </div>
+                <div class="form-group">
+                    <label for="project-url">Project URL (optional)</label>
+                    <input type="url" id="project-url" placeholder="https://github.com/username/project">
+                </div>
+                <div class="form-group">
+                    <label for="project-image">Image URL (optional)</label>
+                    <input type="url" id="project-image" placeholder="https://example.com/image.jpg">
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">Save Project</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Achievement Modal -->
+    <div id="achievement-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-achievement">&times;</span>
+            <h2 id="achievement-modal-title">Add Achievement</h2>
+            <form id="achievement-form">
+                <div class="form-group">
+                    <label for="achievement-name">Event Name</label>
+                    <input type="text" id="achievement-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="achievement-type">Type</label>
+                    <select id="achievement-type" required>
+                        <option value="">Select Type</option>
+                        <option value="hackathon">Hackathon</option>
+                        <option value="program">Program</option>
+                        <option value="competition">Competition</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="certification">Certification</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="achievement-result">Result/Achievement</label>
+                    <input type="text" id="achievement-result" placeholder="1st Place, Winner, Participant, etc." required>
+                </div>
+                <div class="form-group">
+                    <label for="achievement-date">Date</label>
+                    <input type="date" id="achievement-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="achievement-image">Image (optional)</label>
+                    <input type="file" id="achievement-image" accept="image/*">
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary">Save Achievement</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-achievement-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
